@@ -1,0 +1,28 @@
+{
+  "name": "ngvoiceanalyzer",
+  "version": "1.0.0",
+  "description": "web app for digging through data to analyze voice and sentiment of material",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/common": "^2.4.2",
+    "@angular/compiler": "^2.4.2",
+    "@angular/core": "^2.4.2",
+    "@angular/forms": "^2.4.2",
+    "@angular/http": "^2.4.2",
+    "@angular/platform-browser": "^2.4.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.3",
+    "systemjs": "^0.19.41",
+    "zone.js": "^0.7.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "tslint": "^4.3.1",
+    "typescript": "^2.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
