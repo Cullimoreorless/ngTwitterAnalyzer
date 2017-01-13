@@ -1,6 +1,10 @@
-<h1>
-    Voice Analyzer {{username}}
-</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            Voice Analyzer {{username}}
+        </h1>
+    </div>
+</div>
 <div class="row well">
     <div class="col-sm-8">
         Want to learn more about how you come across to the world? Want to learn more about your 
@@ -8,8 +12,10 @@
         what sentiments the account tends to present, what words are most commonly used, and other data points.
     </div>
     <div class="col-sm-4">
-        <form method="POST">
-            <button type="submit">Analyze</button>
-        </form>
+        <input class="form-control" [(ngModel)]="username" placeholder="Twitter VV user" name="uname">
+        <button (click)="getTwitterData()">Analyze</button>
+        <div style="color:red;">
+            {{errorMessage}}
+        </div>
     </div>
 </div>
