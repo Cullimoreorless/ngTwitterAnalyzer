@@ -168,7 +168,7 @@ if (!window.clearImmediate) {
         if (!elements[i]) {
           throw 'The element id specified is not found.';
         }
-      } else if (!el.tagName && !el.appendChild) {
+      } else if (el && !el.tagName && !el.appendChild) {
         throw 'You must pass valid HTML elements, or ID of the element.';
       }
     });

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
-import { TwitterService }   from './twitter.service';
+//import { TwitterService }   from './twitter.service';
 import { AppComponent }  from './app.component';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { AppComponent }  from './app.component';
     FormsModule,
     HttpModule ],
   declarations: [ AppComponent ],
-  providers: [ TwitterService],
+//  providers: [ TwitterService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

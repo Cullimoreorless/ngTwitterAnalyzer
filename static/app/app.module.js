@@ -9,7 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
-var twitter_service_1 = require("./twitter.service");
+//import { TwitterService }   from './twitter.service';
 var app_component_1 = require("./app.component");
 var AppModule = (function () {
     function AppModule() {
@@ -22,7 +22,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule],
         declarations: [app_component_1.AppComponent],
-        providers: [twitter_service_1.TwitterService],
+        //  providers: [ TwitterService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

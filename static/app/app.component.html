@@ -19,3 +19,42 @@
         </div>
     </div>
 </div>
+<div *ngIf="!showAnalysis">
+    {{statusMessage}}
+</div>
+<div *ngIf="showAnalysis">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Most Used Words</h4>
+            <canvas id='my_canvas' height="400" width="600" ></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="graph-title">Day of the week</h4>
+            What days of the week do you tend to tweet most?
+            <!--{{ make_percentage_line_graph('DOW', dow_data, 350, 400, 'dayOfWeek','percentage', 'Day of Week', 'Percent of Tweets') }}-->
+        </div>
+        <div class="col-sm-6">
+            <h4 class="graph-title">Hour of the day</h4>
+            When do you tweet during the day?
+            <!--{{ make_percentage_line_graph('HOD', hod_data, 350, 400, 'hourOfDay','percentage', 'Hour of Day', 'Percent of Tweets') }}-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Sentiment Analysis</h4>
+            Based on the NRC Lexicon, what is the overall sentiment of the words in your tweets?
+            <div id="sentimentGraphEmot">
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Sentiment Analysis</h4>
+            Based on the NRC Lexicon, what is the overall sentiment of the words in your tweets?
+            <div id="sentimentGraphHoriz">
+
+            </div>
+        </div>
+    </div>
+</div>

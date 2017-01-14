@@ -1,11 +1,11 @@
-import { Injectable }    from '@angular/core';
+import { Injectable, Inject }    from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TwitterService {
 
-    constructor(public _http: Http){}
+    constructor(@Inject(Http) private _http: Http){}
 
     getTweets(username:string) : Promise<Response>{
         let ths = this;
