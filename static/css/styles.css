@@ -1,6 +1,15 @@
 body{
-    font-family: 'Droid Serif', Arial, Helvetica, sans-serif;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 14pt;
 }
 .bar{
     fill:steelblue;
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+.graph-title{
+    font-weight: bold;
 }

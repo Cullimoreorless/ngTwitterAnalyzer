@@ -11,7 +11,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-//import { TwitterService }   from './twitter.service';
 var AppComponent = (function () {
     function AppComponent(_http) {
         this._http = _http;
@@ -20,76 +19,12 @@ var AppComponent = (function () {
         this.statusMessage = "Enter a twitter username to begin";
         this.showAnalysis = false;
         this.tweetData = {};
-        this.loadSentimentEmot = function (gData) {
-            var svg = d3.select('#sentimentGraphEmot').append('svg');
-            var w = 400;
-            var h = 350;
-            var margin = { top: 20, right: 20, bottom: 50, left: 50 };
-            var width = w - margin.left - margin.right;
-            var height = h - margin.top - margin.bottom;
-            svg.attr('width', w).attr('height', h);
-            var xScale = d3.scaleLinear().rangeRound([0, width]), yScale = d3.scaleBand().rangeRound([height, 0]).padding(0.1);
-            var g = svg.append('g')
-                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-            yScale.domain(gData.map(function (d) { return d['sentiment']; }));
-            xScale.domain([0, d3.max(gData, function (d) { return d['percentage'] + 0.05; })]);
-            g.append('g')
-                .attr('transform', 'translate(0,' + height + ')')
-                .call(d3.axisBottom(xScale).ticks(10, '%'));
-            g.append('g')
-                .call(d3.axisLeft(yScale))
-                .append('text')
-                .attr('transform', 'rotate(-90)')
-                .attr('y', 6)
-                .attr('dy', '0.71em')
-                .attr('text-anchor', 'end')
-                .text('Y Axis Maybe');
-            g.selectAll('.bar')
-                .data(gData)
-                .enter().append('rect')
-                .attr('class', 'bar')
-                .attr('x', function (d) { return 0; })
-                .attr('y', function (d) { return yScale(d['sentiment']); })
-                .attr('height', yScale.bandwidth())
-                .attr('width', function (d) { return xScale(d['percentage']); });
-        };
-        this.loadSentimentHoriz = function (gData) {
-            var svg = d3.select('#sentimentGraphHoriz').append('svg');
-            var w = 400;
-            var h = 350;
-            var margin = { top: 20, right: 20, bottom: 50, left: 50 };
-            var width = w - margin.left - margin.right;
-            var height = h - margin.top - margin.bottom;
-            svg.attr('width', w).attr('height', h);
-            var xScale = d3.scaleLinear().rangeRound([0, width]), yScale = d3.scaleBand().rangeRound([height, 0]).padding(0.1);
-            var g = svg.append('g')
-                .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-            yScale.domain(gData.map(function (d) { return d['sentiment']; }));
-            xScale.domain([0, d3.max(gData, function (d) { return d['percentage'] + 0.05; })]);
-            g.append('g')
-                .attr('transform', 'translate(0,' + height + ')')
-                .call(d3.axisBottom(xScale).ticks(10, '%'));
-            g.append('g')
-                .call(d3.axisLeft(yScale))
-                .append('text')
-                .attr('transform', 'rotate(-90)')
-                .attr('y', 6)
-                .attr('dy', '0.71em')
-                .attr('text-anchor', 'end')
-                .text('Y Axis Maybe');
-            g.selectAll('.bar')
-                .data(gData)
-                .enter().append('rect')
-                .attr('class', 'bar')
-                .attr('x', function (d) { return 0; })
-                .attr('y', function (d) { return yScale(d['sentiment']); })
-                .attr('height', yScale.bandwidth())
-                .attr('width', function (d) { return xScale(d['percentage']); });
-        };
         this.refreshGraphics = function (data) {
-            this.loadSentimentHoriz(JSON.parse(data.sentimentData));
-            this.loadSentimentEmot(JSON.parse(data.posNegData));
-            WordCloud(document.getElementById('my_canvas'), { list: data.wordCloudData });
+            loadSentimentHoriz(JSON.parse(data.sentimentData));
+            loadSentimentEmot(JSON.parse(data.posNegData));
+            loadLineGraph('DOW', JSON.parse(data.dayOfWeek), 400, 350, 'dayOfWeek', 'percentage', 'Day of Week', 'Percent of Tweets');
+            loadLineGraph('HOD', JSON.parse(data.hourOfDay), 400, 350, 'hourOfDay', 'percentage', 'Hour of Day', 'Percent of Tweets');
+            loadWordCloud('my_canvas', data.wordCloudData);
         };
     }
     AppComponent.prototype.isValidUsername = function () {
@@ -133,7 +68,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: '/static/app/app.component.html?3'
+        templateUrl: '/static/app/app.component.html?10'
     }),
     __param(0, core_1.Inject(http_1.Http))
 ], AppComponent);

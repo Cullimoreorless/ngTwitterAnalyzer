@@ -7,7 +7,7 @@
  */
 
 'use strict';
-
+//console.log(window.setImmediate)
 // setImmediate
 if (!window.setImmediate) {
   window.setImmediate = (function setupSetImmediate() {

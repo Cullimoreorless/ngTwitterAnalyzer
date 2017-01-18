@@ -4,11 +4,11 @@
     <title>Angular QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
-    <script src="{{ url_for('static', filename='js/wordcloud2.js') }}"></script>-->
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">-->
+    <script src="{{ url_for('static', filename='js/wordcloud2.js') }}"></script>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
-    <script src="{{ url_for('static', filename='js/wordcloud2.js') }}"></script>
+    <!--/*<script src="{{ url_for('static', filename='js/wordcloud2.js') }}"></script>*/-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -20,6 +20,7 @@
     <script src="{{ url_for('jsstat.static', filename='systemjs/dist/system.src.js') }}"></script>
 
     <script src="{{ url_for('static', filename='systemjs.config.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/graph-functions.js') }}"></script>
 
     <script>
       System.import('app').catch(function(err){ console.error(err); });
