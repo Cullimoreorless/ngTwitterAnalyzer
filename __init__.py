@@ -33,4 +33,5 @@ oauth = OAuth(access_token, access_secret, consumer_key, consumer_secret)
 twitterApi = Twitter(auth=oauth)
 
 import views
+import models
 

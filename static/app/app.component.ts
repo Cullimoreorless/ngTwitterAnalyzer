@@ -50,8 +50,8 @@ export class AppComponent  {
           console.log(this.tweetData);
         })
         .catch((reason) => {
-          console.log(reason);
-          ths.errorMessage = reason;
+          console.log(reason._body);
+          ths.errorMessage = reason._body;
         })
     }
   };

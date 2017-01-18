@@ -57,8 +57,8 @@ var AppComponent = (function () {
                 ths.refreshGraphics(_this.tweetData);
                 console.log(_this.tweetData);
             })["catch"](function (reason) {
-                console.log(reason);
-                ths.errorMessage = reason;
+                console.log(reason._body);
+                ths.errorMessage = reason._body;
             });
         }
     };
