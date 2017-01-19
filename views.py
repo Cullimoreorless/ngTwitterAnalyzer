@@ -30,10 +30,3 @@ def twitterApiCall(username):
         return Response('Could not retrieve Twitter data, please verify username and try again', 
             status=500, mimetype='application/json')
 
-@app.route('/voice/admin/submittedusers')
-def adminSubmittedUsers():
-    result = ''
-    users = TwitterSubmittedUser.query.all()
-    for user in users:
-        result = user.username + ' '
-    return Response(result, status=200, mimetype='text/html')
